@@ -1,0 +1,114 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    //
+    //! DON'T FORGET TO ADD THESE LINES INTO YOUR USER SHELL PROFILE
+    // export PATH=$PATH:<PATH_TO_FPC_BIN_FOLDER>
+    // export INSTANTFPCOPTIONS="-n @<PATH_TO_FPC_BIN_FOLDER>fpc.cfg"
+    //
+    "version" : "2.0.0" ,
+    "options" : {
+    "cwd" : "${workspaceFolder}" 
+    },
+    "tasks" : [
+        {
+            "label": "fpc: Build",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "command": "${config:my.freepascal.bin}\\fpc.exe",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "${relativeFile}",
+                "-FU${config:my.freepascal.output}",
+                "-FE${config:my.freepascal.output}",
+                "-Mobjfpc",
+                "-CroOti",
+                "-O-",
+                "-g",
+                "-B",
+                "-v",
+                "-Xg",
+                "${config:my.freepascal.debugd}",
+                "${config:my.freepascal.debugdm}",
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": {
+                "owner": "objectpascal",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceFolder}"
+                ],
+                "pattern": {
+                    "kind": "location",
+                    "regexp": "^(.*) \\ (( \\ d.*),( \\ d.*) \\ ) (Warning|Error|Fatal): (.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5,
+                    "loop": true
+                }
+            }
+        },
+        {
+            "label": "fpc: Build and Run",
+            "type": "shell",
+            "group": "test",
+            "command": "${config:my.freepascal.bin}\\instantfpc.exe",
+            "args": [
+                "${relativeFile}",
+                "-FU${config:my.freepascal.output}",
+                "-FE${config:my.freepascal.output}",
+                "-Mobjfpc",
+                "-CroOti",
+                "-O-",
+                "-g",
+                "-B",
+                "-v",
+                "-Xg",
+                "${config:my.freepascal.debugd}",
+                "${config:my.freepascal.debugdm}",
+            ],
+            "presentation": {
+                "focus": true
+            },
+            "problemMatcher": {
+                "owner": "objectpascal",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceFolder}"
+                ],
+                "pattern": {
+                    "kind": "location:",
+                    "regexp": "^(.*) \\ (( \\ d.*),( \\ d.*) \\ ) (Warning|Error|Fatal): (.*)$:",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5,
+                    "loop": true
+                }
+            }
+        },
+
+        {
+            "label": "fpc: Create Build Folders:",
+            "type": "shell",
+            "command": "mkdir:",
+            "args": [
+                "${workspaceFolder}\\${config:my.freepascal.output}"
+            ],
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": []
+        }
+    ]
+   }
