@@ -1,5 +1,5 @@
 {
-    "my.freepascal.bin":"F:\\DEV\\FPC\\3.2.2\\bin\\i386-win32",    
+    "my.freepascal.bin":"C:\\DEV\\FPC\\3.2.2\\bin\\i386-win32",    
     "my.freepascal.processor":"-Px86_64",
     "my.freepascal.opsystem":"-Tdarwin",
     "my.freepascal.syntax":"-Mobjfpc",
@@ -11,5 +11,7 @@
     "my.freepascal.release":"build/release",
     "my.freepascal.deploy":"build/deploy",
     "my.freepascal.debugd":"-gw", // dwarf debug setting
-    "my.freepascal.debugdm":"-godwarfsets" // dwarf mode setting
+    "my.freepascal.debugdm":"-godwarfsets", // dwarf mode setting
+    "my.freepascal.synapse":"C:\\DEV\\FPC\\synapse\\source\\lib"
+
 }

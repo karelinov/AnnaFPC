@@ -1,15 +1,16 @@
-program Test;
+program dead_inside;
 
-uses xxx, sysutils;
-
-var a:string;
-var b:integer;
+uses sysutils, Crt; 
+var dead_count : integer =1000;
 begin
-  Writeln('sdfsdaf');
-  Readln(a);
-  Writeln('a='+a);
-  b:=xxx.xxx(12);
-  Writeln('b='+IntToStr(b));
-  readln()
+  while dead_count >= 0 do begin 
+    dead_count:= dead_count - 7;
+    writeln ('dead_count=', dead_count);
+  end;
+  TextColor(Red);
+ writeln ('you died!')   
+
+  
+
 end.
 

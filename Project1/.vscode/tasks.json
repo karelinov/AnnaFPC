@@ -35,6 +35,7 @@
                 "-Xg",
                 "${config:my.freepascal.debugd}",
                 "${config:my.freepascal.debugdm}",
+                "-Fu${config:my.freepascal.synapse}",
             ],
             "presentation": {
                 "reveal": "always"
