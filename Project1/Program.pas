@@ -1,15 +1,12 @@
-program Test;
+{$H+}
+{$codepage utf-8}
 
-uses xxx, sysutils;
+program Program1;
 
-var a:string;
-var b:integer;
+uses xxx, sysutils, file_test;
+
 begin
-  Writeln('sdfsdaf');
-  Readln(a);
-  Writeln('a='+a);
-  b:=xxx.xxx(12);
-  Writeln('b='+IntToStr(b));
-  readln()
+ file_test.FileStream_test('C:\Users\Helg\Desktop\Новый текстовый документ - копия.txt');
+
 end.
 
