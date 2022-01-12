@@ -12,6 +12,6 @@
     "my.freepascal.deploy":"build/deploy",
     "my.freepascal.debugd":"-gw", // dwarf debug setting
     "my.freepascal.debugdm":"-godwarfsets", // dwarf mode setting
-    "my.freepascal.synapse":"C:\\DEV\\FPC\\synapse\\source\\lib"
+    "my.freepascal.lib":"C:\\DEV\\FPC\\lib\\*"
 
 }

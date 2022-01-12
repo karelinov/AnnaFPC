@@ -35,7 +35,7 @@
                 "-Xg",
                 "${config:my.freepascal.debugd}",
                 "${config:my.freepascal.debugdm}",
-                "-Fu${config:my.freepascal.synapse}",
+                "-Fu${config:my.freepascal.lib}",
             ],
             "presentation": {
                 "reveal": "always"
@@ -48,7 +48,7 @@
                 ],
                 "pattern": {
                     "kind": "location",
-                    "regexp": "^(.*) \\ (( \\ d.*),( \\ d.*) \\ ) (Warning|Error|Fatal): (.*)$",
+                    "regexp": "^$",
                     "file": 1,
                     "line": 2,
                     "column": 3,
@@ -59,23 +59,11 @@
             }
         },
         {
-            "label": "fpc: Build and Run",
+            "label": "fpc: Run",
             "type": "shell",
             "group": "test",
-            "command": "${config:my.freepascal.bin}\\instantfpc.exe",
+            "command": "${workspaceFolder}\\${config:my.freepascal.output}\\${fileBasenameNoExtension}.exe",
             "args": [
-                "${relativeFile}",
-                "-FU${config:my.freepascal.output}",
-                "-FE${config:my.freepascal.output}",
-                "-Mobjfpc",
-                "-CroOti",
-                "-O-",
-                "-g",
-                "-B",
-                "-v",
-                "-Xg",
-                "${config:my.freepascal.debugd}",
-                "${config:my.freepascal.debugdm}",
             ],
             "presentation": {
                 "focus": true
@@ -88,7 +76,7 @@
                 ],
                 "pattern": {
                     "kind": "location:",
-                    "regexp": "^(.*) \\ (( \\ d.*),( \\ d.*) \\ ) (Warning|Error|Fatal): (.*)$:",
+                    "regexp": "^(.*)$",
                     "file": 1,
                     "line": 2,
                     "column": 3,

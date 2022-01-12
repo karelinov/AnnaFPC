@@ -1,3 +1,4 @@
+{$codepage utf-8}
 {
   The Micro Pascal WebServer
 
@@ -64,13 +65,15 @@ begin
     OutputDataString :=
       '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"'
       + ' "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">' + CRLF
-      + '<html><h1>Teste</h1></html>' + CRLF;
+      + '<html><h1>Привет Аня!</h1><DIV style="color:red">пРИВЕТ</DIV></html>' + CRLF;
+      
 
     // Write the headers back to the client
     ASocket.SendString('HTTP/1.0 200' + CRLF);
-    ASocket.SendString('Content-type: Text/Html' + CRLF);
+    ASocket.SendString('Content-type: Text/Html; charset=UTF-8' + CRLF);
     ASocket.SendString('Content-length: ' + IntTostr(Length(OutputDataString)) + CRLF);
     ASocket.SendString('Connection: close' + CRLF);
+    ASocket.SendString('no-cache' + CRLF);
     ASocket.SendString('Date: ' + Rfc822DateTime(now) + CRLF);
     ASocket.SendString('Server: Servidor do Felipe usando Synapse' + CRLF);
     ASocket.SendString('' + CRLF);
@@ -88,14 +91,15 @@ end;
 procedure Run();
 var
   ListenerSocket, ConnectionSocket: TTCPBlockSocket;
-
+  ListenPort: string='1500';
 begin
   ListenerSocket := TTCPBlockSocket.Create;
   ConnectionSocket := TTCPBlockSocket.Create;
 
   ListenerSocket.CreateSocket;
   ListenerSocket.setLinger(true,10);
-  ListenerSocket.bind('0.0.0.0','1500');
+  ListenerSocket.bind('0.0.0.0',ListenPort);
+  WriteLn('Начинаем слушать порт ',ListenPort,'...');
   ListenerSocket.listen;
 
   repeat

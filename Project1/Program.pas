@@ -1,16 +1,11 @@
-program dead_inside;
+{$codepage utf-8}
 
-uses sysutils, Crt; 
-var dead_count : integer =1000;
+program Test;
+
+uses sysutils, upserver, xxx, classexample; 
 begin
-  while dead_count >= 0 do begin 
-    dead_count:= dead_count - 7;
-    writeln ('dead_count=', dead_count);
-  end;
-  TextColor(Red);
- writeln ('you died!')   
 
-  
+  upserver.Run;
 
 end.
 

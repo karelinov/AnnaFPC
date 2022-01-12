@@ -1,11 +1,11 @@
 unit xxx;
 interface
-function xxx(input:integer):integer;
+function xxxf(input:integer):integer;
 
 implementation
-function xxx(input:integer):integer;
+function xxxf(input:integer):integer;
 begin
-  xxx:=input;   
-end; 
+  xxxf:=input+12;   
+end;
 
 end.
