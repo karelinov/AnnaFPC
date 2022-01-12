@@ -1,11 +1,12 @@
+{$H+}
 {$codepage utf-8}
 
-program Test;
+program Program1;
 
-uses sysutils, upserver, xxx, classexample; 
+uses xxx, sysutils, file_test;
+
 begin
-
-  upserver.Run;
+ file_test.FileStream_test('C:\Users\Helg\Desktop\Новый текстовый документ - копия.txt');
 
 end.
 
