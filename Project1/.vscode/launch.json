@@ -7,10 +7,28 @@
         {
             "type": "by-gdb",
             "request": "launch",
-            "name": "Launch(gdb)",
-            "program": "${workspaceFolder}/out/${fileBasenameNoExtension}.exe",
+            "name": "Debug a program (gdb beyond)",
+            "program": "${workspaceFolder}\\${config:my.freepascal.output}\\${fileBasenameNoExtension}.exe",
             "cwd": "${workspaceRoot}",
-            "preLaunchTask": "${defaultBuildTask}"            
+            "debuggerArgs": []
+        },
+        {
+            "type": "fpDebug",
+            "request": "launch",
+            "name": "fpDebug: Debug a program",
+            "program": "${workspaceFolder}\\${config:my.freepascal.output}\\${fileBasenameNoExtension}.exe",
+            "workingdirectory": "${workspaceFolder}",
+            "preLaunchTask": "fpc: Build"            
+        },
+
+        {
+            "type": "gdb",
+            "request": "launch",
+            "name": "Launch(gdb)",
+            "program": "${workspaceFolder}\\${config:my.freepascal.output}\\${fileBasenameNoExtension}.exe",
+            "target": "${workspaceFolder}\\${config:my.freepascal.output}\\${fileBasenameNoExtension}.exe",
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": "fpc: Build"            
         }
     ]
 }

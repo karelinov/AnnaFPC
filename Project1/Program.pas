@@ -1,3 +1,4 @@
+{$MODE OBJFPC}
 {$H+}
 {$codepage utf-8}
 
@@ -7,9 +8,6 @@ uses xxx, sysutils, animals;
 var 
   i : Integer;
   animal_list: array of animals.animal;
-  animal1: animals.animal;
-  animal2: animals.dog;
-  animal3: animals.cat;
 begin
   Randomize;
   SetLength (animal_list, Length(animal_list) +1);

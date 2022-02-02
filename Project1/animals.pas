@@ -69,10 +69,11 @@ begin
 
       already_used:= false;
       for i:= 0 to Length(usednumbers)-1 do begin
-        Writeln('check usednumbers[i] ='+IntToStr(usednumbers[i])+ 'n='+ IntToStr(n));
-        if usednumbers[i] = n then 
+        Writeln('check usednumbers[i] ='+IntToStr(usednumbers[i])+ ' n='+ IntToStr(n));
+        if usednumbers[i] = n then begin
           already_used:= true;
           break;
+        end;
       end;
       Writeln('already_used ='+booltoStr(already_used));
 
@@ -94,8 +95,10 @@ constructor animal.Create (pname : String);
 begin
   Create;
 
-  if pname <> '' then
+  if pname <> '' then begin
     name := pname;
+    Writeln('override default name with '+pname);
+  end;  
 end;
 
 
