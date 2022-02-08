@@ -4,11 +4,15 @@
 
 program Program1;
 
-uses xxx, sysutils, animals;
+uses xxx, sysutils, animals, name_provider;
 var 
   i : Integer;
   animal_list: array of animals.animal;
 begin
+  Writeln(name_provider.get_name());
+
+  exit;
+
   Randomize;
   SetLength (animal_list, Length(animal_list) +1);
   animal_list [Length(animal_list) -1] :=  dog.Create('Шарик');
