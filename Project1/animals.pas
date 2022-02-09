@@ -61,6 +61,7 @@ begin
 
   if Self is dog then begin
     repeat
+      // https://randomdatatools.ru/developers/
       Writeln('Stepped into repeat');
       Writeln('usednumbers length='+IntToStr(Length(usednumbers)));
     
@@ -70,10 +71,10 @@ begin
       already_used:= false;
       for i:= 0 to Length(usednumbers)-1 do begin
         Writeln('check usednumbers[i] ='+IntToStr(usednumbers[i])+ ' n='+ IntToStr(n));
-        if usednumbers[i] = n then begin
+        if usednumbers[i] = n then begin 
           already_used:= true;
           break;
-        end;
+        end;  
       end;
       Writeln('already_used ='+booltoStr(already_used));
 
