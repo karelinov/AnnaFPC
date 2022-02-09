@@ -5,7 +5,7 @@
 program Program1;
 
 uses xxx, sysutils, animals;
-var 
+var
   i : Integer;
   animal_list: array of animals.animal;
 begin
@@ -27,7 +27,7 @@ begin
   SetLength (animal_list, Length(animal_list) +1);
   animal_list [Length(animal_list) -1] :=  dog.Create;
   SetLength (animal_list, Length(animal_list) +1);
-  animal_list [Length(animal_list) -1] :=  dog.Create;        
+  animal_list [Length(animal_list) -1] :=  dog.Create;
 
   for i := 0 to Length(animal_list) -1 do begin
     animal_list[i].say;
