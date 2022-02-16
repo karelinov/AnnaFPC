@@ -9,17 +9,22 @@ var
   i : Integer;
   animal_list: array of animals.animal;
 begin
-  Writeln(name_provider.get_name());
-
-  exit;
 
   Randomize;
+  // SetLength (animal_list, Length(animal_list) +1);
+  // animal_list [Length(animal_list) -1] :=  dog.Create('Шарик');
+  // SetLength (animal_list, Length(animal_list) +1);
+  // animal_list [Length(animal_list) -1] :=  cat.Create('Маньяк');
+  // SetLength (animal_list, Length(animal_list) +1);
+  // animal_list [Length(animal_list) -1] :=  cat.Create('Евдоким');
   SetLength (animal_list, Length(animal_list) +1);
-  animal_list [Length(animal_list) -1] :=  dog.Create('Шарик');
+  animal_list [Length(animal_list) -1] :=  cat.Create;
   SetLength (animal_list, Length(animal_list) +1);
-  animal_list [Length(animal_list) -1] :=  cat.Create('Маньяк');
+  animal_list [Length(animal_list) -1] :=  cat.Create;
   SetLength (animal_list, Length(animal_list) +1);
-  animal_list [Length(animal_list) -1] :=  cat.Create('Евдоким');
+  animal_list [Length(animal_list) -1] :=  cat.Create;
+  SetLength (animal_list, Length(animal_list) +1);
+  animal_list [Length(animal_list) -1] :=  dog.Create;
   SetLength (animal_list, Length(animal_list) +1);
   animal_list [Length(animal_list) -1] :=  dog.Create;
   SetLength (animal_list, Length(animal_list) +1);
@@ -28,10 +33,8 @@ begin
   animal_list [Length(animal_list) -1] :=  dog.Create;
   SetLength (animal_list, Length(animal_list) +1);
   animal_list [Length(animal_list) -1] :=  dog.Create;
-  SetLength (animal_list, Length(animal_list) +1);
+  SetLength (animal_list, Length(animal_list) +1);        
   animal_list [Length(animal_list) -1] :=  dog.Create;
-  SetLength (animal_list, Length(animal_list) +1);
-  animal_list [Length(animal_list) -1] :=  dog.Create;        
 
   for i := 0 to Length(animal_list) -1 do begin
     animal_list[i].say;
@@ -50,6 +53,6 @@ begin
   for i := 0 to Length(animal_list) -1 do begin
     animal_list[i].say;
   end;
-
+ 
 end.
 

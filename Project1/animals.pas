@@ -14,8 +14,8 @@ public
   state : animal_state;
   name: String;
 
-  constructor Create;
-  constructor Create (pname : String);
+  constructor Create; virtual;
+  constructor Create (pname : String); 
   procedure say; virtual;
   procedure SetState ( new_state : animal_state );
 end;
@@ -23,16 +23,18 @@ end;
 cat = class (animal)
 public
   procedure say; override;
+  constructor Create; override;
 end;
 
 dog = class (animal)
 public
   procedure say; override;
+  
 end;
 
 
 implementation
-uses sysutils;
+uses sysutils, name_provider;
 var
  usednumbers: array of integer;
 
@@ -52,39 +54,40 @@ begin
 end;
 
 constructor animal.Create;
-var
- n: integer;
- i: integer;
- already_used : boolean;
+// var
+//  n: integer;
+//  i: integer;
+//  already_used : boolean;
 begin
   self.state:=sit;
 
   if Self is dog then begin
-    repeat
-      // https://randomdatatools.ru/developers/
-      Writeln('Stepped into repeat');
-      Writeln('usednumbers length='+IntToStr(Length(usednumbers)));
+    // repeat
+    //   // https://randomdatatools.ru/developers/
+    //   Writeln('Stepped into repeat');
+    //   Writeln('usednumbers length='+IntToStr(Length(usednumbers)));
     
-      n:= Random(10);
-      Writeln('Generated '+IntToStr(n));
+    //   n:= Random(10);
+    //   Writeln('Generated '+IntToStr(n));
 
-      already_used:= false;
-      for i:= 0 to Length(usednumbers)-1 do begin
-        Writeln('check usednumbers[i] ='+IntToStr(usednumbers[i])+ ' n='+ IntToStr(n));
-        if usednumbers[i] = n then begin 
-          already_used:= true;
-          break;
-        end;  
-      end;
-      Writeln('already_used ='+booltoStr(already_used));
+    //   already_used:= false;
+    //   for i:= 0 to Length(usednumbers)-1 do begin
+    //     Writeln('check usednumbers[i] ='+IntToStr(usednumbers[i])+ ' n='+ IntToStr(n));
+    //     if usednumbers[i] = n then begin 
+    //       already_used:= true;
+    //       break;
+    //     end;  
+    //   end;
+    //   Writeln('already_used ='+booltoStr(already_used));
 
-    until not already_used;
-    SetLength(usednumbers, Length(usednumbers) +1);
-    usednumbers[Length(usednumbers) -1] := n;
+    // until not already_used;
+    // SetLength(usednumbers, Length(usednumbers) +1);
+    // usednumbers[Length(usednumbers) -1] := n;
     
 
-    self.name := 'Бобик_' + IntToStr(n);
-    Writeln('generated name  ='+self.name);
+    // self.name := 'Бобик_' + IntToStr(n);
+    self.name := name_provider.get_name;
+    // Writeln('generated name  ='+self.name);
   end
   else begin
      self.name := 'неызвестная жывотная'; 
@@ -119,4 +122,11 @@ procedure animal.SetState ( new_state : animal_state );
 begin
   self.state:=new_state;
 end;
+
+constructor cat.Create; 
+begin
+  self.name := name_provider.ehe;  
+end;
+
+
 end. 
