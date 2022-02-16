@@ -17,11 +17,10 @@ var
   s: UTF8String;
   inputStream: TMemoryStream;
   buffer: array[0..4096] of byte;
-  readcount:integer;
+  readcount:LongInt;
   jData : TJSONData;
   jObject : TJSONObject;
-  jArray : TJSONArray;
-begin
+ begin
   http_client := TFPHttpClient.Create(Nil);
   inputStream:=TMemoryStream.Create();
   http_client.get('http://api.randomdatatools.ru/?gender=man&params=FirstName&unescaped=false&typeName=rare', inputStream);

@@ -1,3 +1,4 @@
+{$MODE OBJFPC}
 {$H+}
 {$codepage utf-8}
 
@@ -22,22 +23,18 @@ end;
 
 cat = class (animal)
 public
+  constructor Create1; 
   procedure say; override;
-  constructor Create; override;
 end;
 
 dog = class (animal)
 public
   procedure say; override;
-  
 end;
 
 
 implementation
 uses sysutils, name_provider;
-var
- usednumbers: array of integer;
-
 
 procedure animal.say; 
 var
@@ -54,40 +51,12 @@ begin
 end;
 
 constructor animal.Create;
-// var
-//  n: integer;
-//  i: integer;
-//  already_used : boolean;
 begin
+  inherited Create;
   self.state:=sit;
 
   if Self is dog then begin
-    // repeat
-    //   // https://randomdatatools.ru/developers/
-    //   Writeln('Stepped into repeat');
-    //   Writeln('usednumbers length='+IntToStr(Length(usednumbers)));
-    
-    //   n:= Random(10);
-    //   Writeln('Generated '+IntToStr(n));
-
-    //   already_used:= false;
-    //   for i:= 0 to Length(usednumbers)-1 do begin
-    //     Writeln('check usednumbers[i] ='+IntToStr(usednumbers[i])+ ' n='+ IntToStr(n));
-    //     if usednumbers[i] = n then begin 
-    //       already_used:= true;
-    //       break;
-    //     end;  
-    //   end;
-    //   Writeln('already_used ='+booltoStr(already_used));
-
-    // until not already_used;
-    // SetLength(usednumbers, Length(usednumbers) +1);
-    // usednumbers[Length(usednumbers) -1] := n;
-    
-
-    // self.name := 'Бобик_' + IntToStr(n);
     self.name := name_provider.get_name;
-    // Writeln('generated name  ='+self.name);
   end
   else begin
      self.name := 'неызвестная жывотная'; 
@@ -123,10 +92,10 @@ begin
   self.state:=new_state;
 end;
 
-constructor cat.Create; 
+constructor cat.Create1; 
 begin
+  inherited Create;
   self.name := name_provider.ehe;  
 end;
-
 
 end. 

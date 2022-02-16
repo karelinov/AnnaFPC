@@ -11,18 +11,18 @@ var
 begin
 
   Randomize;
-  // SetLength (animal_list, Length(animal_list) +1);
-  // animal_list [Length(animal_list) -1] :=  dog.Create('Шарик');
-  // SetLength (animal_list, Length(animal_list) +1);
-  // animal_list [Length(animal_list) -1] :=  cat.Create('Маньяк');
-  // SetLength (animal_list, Length(animal_list) +1);
-  // animal_list [Length(animal_list) -1] :=  cat.Create('Евдоким');
   SetLength (animal_list, Length(animal_list) +1);
-  animal_list [Length(animal_list) -1] :=  cat.Create;
+  animal_list [Length(animal_list) -1] :=  dog.Create('Шарик');
   SetLength (animal_list, Length(animal_list) +1);
-  animal_list [Length(animal_list) -1] :=  cat.Create;
+  animal_list [Length(animal_list) -1] :=  cat.Create('Маньяк');
   SetLength (animal_list, Length(animal_list) +1);
-  animal_list [Length(animal_list) -1] :=  cat.Create;
+  animal_list [Length(animal_list) -1] :=  cat.Create('Евдоким');
+  SetLength (animal_list, Length(animal_list) +1);
+  animal_list [Length(animal_list) -1] :=  cat.Create1;
+  SetLength (animal_list, Length(animal_list) +1);
+  animal_list [Length(animal_list) -1] :=  cat.Create1;
+  SetLength (animal_list, Length(animal_list) +1);
+  animal_list [Length(animal_list) -1] :=  cat.Create1;
   SetLength (animal_list, Length(animal_list) +1);
   animal_list [Length(animal_list) -1] :=  dog.Create;
   SetLength (animal_list, Length(animal_list) +1);
