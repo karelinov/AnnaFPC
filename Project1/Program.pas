@@ -8,6 +8,7 @@ uses xxx, sysutils, animals, name_provider;
 var 
   i : Integer;
   animal_list: array of animals.animal;
+
 begin
 
   Randomize;

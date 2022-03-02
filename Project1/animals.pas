@@ -57,6 +57,7 @@ begin
 
   if Self is dog then begin
     self.name := name_provider.get_name;
+    if Self.name = '' then Self.name := 'ашыпка природы';
   end
   else begin
      self.name := 'неызвестная жывотная'; 
@@ -70,7 +71,7 @@ begin
 
   if pname <> '' then begin
     name := pname;
-    Writeln('override default name with '+pname);
+    //Writeln('override default name with '+pname);
   end;  
 end;
 

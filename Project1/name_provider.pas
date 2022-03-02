@@ -21,17 +21,24 @@ var
   jData : TJSONData;
   jObject : TJSONObject;
  begin
-  http_client := TFPHttpClient.Create(Nil);
-  inputStream:=TMemoryStream.Create();
-  http_client.get('http://api.randomdatatools.ru/?gender=man&params=FirstName&unescaped=false&typeName=rare', inputStream);
-  inputStream.Seek(0,soFromBeginning);
-  readcount:=inputStream.Read(buffer,inputStream.Size);
-  s:=TEncoding.UTF8.GetString(buffer,0,readcount);
+  try
+    http_client := TFPHttpClient.Create(Nil);
+    inputStream:=TMemoryStream.Create();
+    http_client.get('http://api.randomdatatools.ru/?gender=man&params=FirstName&unescaped=false&typeName=rare', inputStream);
+    inputStream.Seek(0,soFromBeginning);
+    readcount:=inputStream.Read(buffer,inputStream.Size);
+    s:=TEncoding.UTF8.GetString(buffer,0,readcount);
 
-  jData := GetJSON(s);
-  jObject := jData as TJSONObject;
-  s := jObject.get('FirstName');
-  
+    jData := GetJSON(s);
+    jObject := jData as TJSONObject;
+    s := jObject.get('FirstName');   
+  except
+    on Err: Exception do
+    begin
+      s:='';
+    end;
+  end;
+ 
 
   get_name:= s;  
 end;
